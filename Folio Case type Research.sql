@@ -143,6 +143,8 @@ WHERE pe.FKCLIENT_T = 'KyGpfK89YH'
   
 -------------------------------------------------------------------- 
 -- Placement Episode Legal Authority
+-- la.FKPLC_EPST = pe.FKCLIENT_T  
+-- la.FKPLC_EPS0 = pe.THIRD_ID  
 --------------------------------------------------------------------
 SELECT la.THIRD_ID, EFFCTV_DT, PLC_ATHC, --LST_UPD_ID, LST_UPD_TS, 
 		FKPLC_EPST, FKPLC_EPS0
@@ -181,18 +183,18 @@ SELECT la.THIRD_ID, EFFCTV_DT, PLC_ATHC, --LST_UPD_ID, LST_UPD_TS,
 -- COUNTS
  SELECT DISTINCT 
  		count(*)  
-  FROM CWSWIN.CASE_T c
-  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 
-  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T
-  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 
-  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER
+  FROM CWSWIN.CASE_T c													-- CASE table
+  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 				-- JOIN Child Client table
+  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T				-- JOIN Client table
+  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 				-- JOIN CASE Voluntary Status table
+  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER					-- JOIN Intervention Reason table
   --
-  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 
-  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID
+  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 				-- JOIN Placement Episode table
+  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID				-- JOIN Plcmnt Episode Legal Authority table
 --
-  JOIN CWSWIN.CASE_HRT ch ON ch.FKCASE_T = c.IDENTIFIER 
-  JOIN cwswin.HEARNG_T ht ON ht.IDENTIFIER = ch.FKHEARNG_T 
-  JOIN CWSWIN.CT_RESLT cr ON cr.FKCASE_HRT = c.IDENTIFIER
+  JOIN CWSWIN.CASE_HRT ch ON ch.FKCASE_T = c.IDENTIFIER					-- JOIN Case Hearing table 
+  JOIN cwswin.HEARNG_T ht ON ht.IDENTIFIER = ch.FKHEARNG_T 				-- JOIN Hearing table
+  JOIN CWSWIN.CT_RESLT cr ON cr.FKCASE_HRT = c.IDENTIFIER				-- JOIN Court RESULT table
 --  
   JOIN CWSWIN.SYS_CD_C sc ON sc.SYS_ID = c.SRV_CMPC
   JOIN CWSWIN.SYS_CD_C sc2 ON sc2.SYS_ID = ir.INTVRSNC 
@@ -227,18 +229,18 @@ SELECT DISTINCT
 	  sc3.SHORT_DSC court_order,
 	  ch.FKHEARNG_T, ch.LST_UPD_TS,  
 	  cr.FKCASE_HR0, cr.FKCASE_HRT  
-  FROM CWSWIN.CASE_T c
-  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 
-  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T
-  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 
-  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER
+  FROM CWSWIN.CASE_T c												-- CASE table
+  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 			-- JOIN Child Client table
+  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T			-- JOIN Client table
+  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 			-- JOIN CASE Voluntary Status table
+  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER				-- JOIN Intervention Reason table
   --
-  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 
-  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID
+  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 			-- JOIN Placement Episode table
+  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID			-- JOIN Plcmnt Episode Legal Authority table
 --
-  JOIN CWSWIN.CASE_HRT ch ON ch.FKCASE_T = c.IDENTIFIER 
-  JOIN cwswin.HEARNG_T ht ON ht.IDENTIFIER = ch.FKHEARNG_T 
-  JOIN CWSWIN.CT_RESLT cr ON cr.FKCASE_HRT = c.IDENTIFIER
+  JOIN CWSWIN.CASE_HRT ch ON ch.FKCASE_T = c.IDENTIFIER 			-- JOIN Case Hearing table
+  JOIN cwswin.HEARNG_T ht ON ht.IDENTIFIER = ch.FKHEARNG_T 			-- JOIN Hearing table
+  JOIN CWSWIN.CT_RESLT cr ON cr.FKCASE_HRT = c.IDENTIFIER			-- JOIN Court RESULT table
 --  
   JOIN CWSWIN.SYS_CD_C sc ON sc.SYS_ID = c.SRV_CMPC
   JOIN CWSWIN.SYS_CD_C sc2 ON sc2.SYS_ID = ir.INTVRSNC 
@@ -318,21 +320,21 @@ SELECT  --count(*)
 	  pe.THIRD_ID Place_EP_Id,
 	  oh.START_DT oh_START_DT, oh.END_DT oh_END_DT, 
 	  sc3.SHORT_DSC SCP_Relationship_to_Client
-  FROM CWSWIN.CASE_T c
-  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 
-  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T
-  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 
-  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER
+  FROM CWSWIN.CASE_T c													-- CASE table
+  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 				-- JOIN Child Client table
+  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T				-- JOIN Client table
+  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 				-- JOIN CASE Voluntary Status table
+  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER					-- JOIN Intervention Reason table
   --
-  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 
-  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID
-  JOIN CWSWIN.O_HM_PLT oh ON oh.FKPLC_EPS0 = pe.THIRD_ID 
+  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 				-- JOIN Placement Episode table
+  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID				-- JOIN Plcmnt Episode Legal Authority table
+  JOIN CWSWIN.O_HM_PLT oh ON oh.FKPLC_EPS0 = pe.THIRD_ID 				-- JOIN OUT Home Placement table
 --  
   JOIN CWSWIN.SYS_CD_C sc ON sc.SYS_ID = c.SRV_CMPC
   JOIN CWSWIN.SYS_CD_C sc2 ON sc2.SYS_ID = ir.INTVRSNC 
   JOIN CWSWIN.SYS_CD_C sc3 ON sc3.SYS_ID = oh.SCP_RLTC 
- WHERE c.SRV_CMPC = 1695		--	Permanent Placement
-   AND vs.VLNTRY_IND = 'Y'		-- Non Voluntary
+ WHERE c.SRV_CMPC = 1695		-- Permanent Placement
+   AND vs.VLNTRY_IND = 'Y'		-- Voluntary status
    AND vs.END_DT IS NULL   		-- CURRENT Voluntary Status
    AND ir.INTVRSNC = 1225		-- Guardian Requesting FC Payment
    AND pe.PLEPS_ENDT IS NULL 	-- CURRENT Placement Episode
@@ -340,7 +342,7 @@ SELECT  --count(*)
    AND la.FKPLC_EPST = pe.FKCLIENT_T 
    AND oh.FKPLC_EPST = pe.FKCLIENT_T 
    AND oh.SCP_RLTC  = 1637		-- Nonrelative Nonguardian
-   AND oh.END_DT IS NULL       -- Returns most current                 
+   AND oh.END_DT IS NULL        -- Returns most current                 
  --  AND c.IDENTIFIER = 'AaS77uzGQv'
    --AND ct.IDENTIFIER = 'G2VDUFLLjU'
  ORDER BY client_id
@@ -364,6 +366,8 @@ SELECT la.THIRD_ID, EFFCTV_DT, PLC_ATHC, la.LST_UPD_ID, la.LST_UPD_TS,
 -- WHERE la.FKPLC_EPS0  = 'Cfy0Itv9df'
  
  -- Out Home Placement DATA  - has duplicates
+ -- oh.FKPLC_EPST = pe.FKCLIENT_T
+ -- oh.FKPLC_EPS0 = pe.THIRD_ID
  SELECT IDENTIFIER, FKPLC_EPST, FKPLC_EPS0, --AGR_EFF_DT, APRVL_NO, APV_STC, CHDP_RF_DT, CHDP_RQIND, DFPRNT_IND, SOC158_DOC, AFDC_PRDOC, AGNFP_ADOC, AGNGH_ADOC, EMRG_PLIND, 
  		START_DT, END_DT, --, EXMP_HMIND, GHM_PLCIND, INT_NTC_DT, PAYEETPC, PND_LICIND, PLCG_RNC, PROGRAM_NO, SCP_RLTC, EXT_APVNO, XT_APV_STC, PAYEE_ENDT, SUBP_FSTNM, SUBP_LSTNM, SUBP_MIDNM, PYE_STRTDT, YOUAKM_CD, LST_UPD_ID, LST_UPD_TS, FKPLC_HM_T, FKPLC_EPST, FKPLC_EPS0, PL_RTNLDSC, REMVL_DSC, SCPROXIND, HEP_DT, SBPLRSNC, SIBPLC_TXT, SCPROX_TXT, GRDDEP_IND, SCH_PPL_CD, SIBTGHR_CD, TDCNSL_IND, TDAGR_DT, CPWNMD_IND, CPWNMD_CNT, TRBSPH_CD, LOC_ASM_DT
  		sc.SHORT_DSC 
@@ -372,10 +376,10 @@ SELECT la.THIRD_ID, EFFCTV_DT, PLC_ATHC, la.LST_UPD_ID, la.LST_UPD_TS,
   WHERE oh.FKPLC_EPS0 = '6CZU5TTJz8'	--'7cPCMn44Dr'
     AND oh.SCP_RLTC = 1637 
   
--- Sys tables list of Interventin Reasons
+-- Sys tables list of
  SELECT sc.SYS_ID ,sc.SHORT_DSC 
   FROM CWSWIN.SYS_CD_C sc
- WHERE sc.FKS_META_T = 'SCP_RLTC'   
+ WHERE sc.FKS_META_T = 'SCP_RLTC'  --    SCP Relationship TO Child (from Out home placement)
  
  
 ----------------------------------------------------------------------------------
@@ -400,21 +404,21 @@ SELECT  --count(*)
 	  pe.THIRD_ID Place_EP_Id,
 	  oh.START_DT oh_START_DT, oh.END_DT oh_END_DT, 
 	  sc3.SHORT_DSC SCP_Relationship_to_Client
-  FROM CWSWIN.CASE_T c
-  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 
-  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T
-  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 
-  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER
+  FROM CWSWIN.CASE_T c												-- CASE table
+  JOIN CWSWIN.CHLD_CLT cc ON cc.FKCLIENT_T = c.FKCHLD_CLT 			-- JOIN Child Client table
+  JOIN CWSWIN.CLIENT_T ct ON ct.IDENTIFIER = cc.FKCLIENT_T			-- JOIN Client table
+  JOIN CWSWIN.CSVOL_ST vs ON vs.FKCASE_T = c.IDENTIFIER 			-- JOIN CASE Voluntary Status table
+  JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER				-- JOIN Intervention Reason table
   --
-  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 
-  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID
-  JOIN CWSWIN.O_HM_PLT oh ON oh.FKPLC_EPS0 = pe.THIRD_ID 
+  JOIN CWSWIN.PLC_EPST pe ON pe.FKCLIENT_T = ct.IDENTIFIER 			-- JOIN Placement Episode table
+  JOIN CWSWIN.LG_AUTHT la ON la.FKPLC_EPS0 = pe.THIRD_ID			-- JOIN Plcmnt Episode Legal Authority table
+  JOIN CWSWIN.O_HM_PLT oh ON oh.FKPLC_EPS0 = pe.THIRD_ID 			-- JOIN OUT Home Placement table
 --  
   JOIN CWSWIN.SYS_CD_C sc ON sc.SYS_ID = c.SRV_CMPC
   JOIN CWSWIN.SYS_CD_C sc2 ON sc2.SYS_ID = ir.INTVRSNC 
   JOIN CWSWIN.SYS_CD_C sc3 ON sc3.SYS_ID = oh.SCP_RLTC 
- WHERE c.SRV_CMPC = 1695		--	Permanent Placement
-   AND vs.VLNTRY_IND = 'N'		-- Non Voluntary
+ WHERE c.SRV_CMPC = 1695		-- Permanent Placement
+   AND vs.VLNTRY_IND = 'N'		-- Non Voluntary status
    AND vs.END_DT IS NULL   		-- CURRENT Voluntary Status
    AND ir.INTVRSNC = 1225		-- Guardian Requesting FC Payment
    AND pe.PLEPS_ENDT IS NULL 	-- CURRENT Placement Episode
