@@ -1,0 +1,93 @@
+select  trim(c.identifier) as External_Id__c
+,case      when cs.vlntry_ind='N' and c.srv_cmpc ='1695' and ir.intvrsnc = '1225' and la.plc_athc='1404' and cr.FNDGORDC in ('5857','1362')
+		   then 'Non-Related Legal Guardianship - Juvenile Dependency Court/WIC 300, Without Dependency'
+           when cs.vlntry_ind='N' and c.srv_cmpc ='1695' and ir.intvrsnc = '1225' and la.plc_athc='1404' 
+		   then 'Non-Related Legal Guardianship - Juvenile Dependency Court/WIC 300, With Dependency'  
+		   when cs.vlntry_ind in ('Y','N') and c.srv_cmpc ='1695' and ir.intvrsnc = '1225' and la.plc_athc='6539' and oh.scp_rltc in ('1637','6991')
+		   then 'Non-Related Legal Guardianship - Probate Court'
+		   when cs.vlntry_ind='N' and c.srv_cmpc ='1695' and la.plc_athc='6135' and oh.scp_rltc='1638' and ((cht.hearing_dt>Current_date and cht.hearing_dt!='2099-12-31') or (cr.fndgordc is null and cht.hearing_dt<Current_date))
+		   then 'Relative Guardianship - With Dependency'
+		   when cs.vlntry_ind='N' and c.srv_cmpc ='1695' and la.plc_athc='6135' and oh.scp_rltc='1638'and cr.fndgordc in ('5857','1362')
+		   then 'Relative Guardianship - Without Dependency'  
+           when cs.vlntry_ind in ('N','Y') and c.srv_cmpc in ('1694','1695') and ir.intvrsnc = '1226'
+           then 'ICPC Courtesy Supervision'
+		   when cs.vlntry_ind='N' and c.srv_cmpc in ('1694','1695') and(ir.intvrsnc = '5608' or c.rsp_agy_cd ='P')
+           then 'Juvenile Probation'   
+		   when  cs.vlntry_ind='N' and c.srv_cmpc in ('1692','1694','1695','6540','1693')
+		   then 'Court' 
+		   when cs.vlntry_ind='Y' and c.srv_cmpc in ('1693','1694')
+		   then 'Voluntary'
+		   else '' end as Case_type_c,
+		   cs.fkcase_t,ir.fkcase_t,
+		   pe.fkclient_t,pe.pleps_endt,la.EFFCTV_DT,
+		   pe.third_id, la.fkplc_epst,la.fkplc_eps0,
+		   cs.vlntry_ind, c.srv_cmpc , ir.intvrsnc, la.plc_athc, cr.FNDGORDC
+​
+from stg_case_t c
+​
+left join stg_chld_clt cc on cc.fkclient_t = c.fkchld_clt
+left join stg_client_t ct on ct.identifier = cc.fkclient_t
+​
+-------------------------------- Case Voluntary status table
+left join (select fkcase_t,vlntry_ind,end_dt, row_number () over (partition by  fkcase_t order by end_dt desc nulls first) as rnk 
+	                        from stg_csvol_st
+	             )cs on cs.fkcase_t =c.identifier and cs.vlntry_ind in ('N','Y') and cs.rnk=1	
+​
+--------------------------------- Intervention reason table
+left join(select fkcase_t,intvrsnc,row_number () over (partition by  fkcase_t order by lst_upd_ts desc nulls first) as rnk
+                              from stg_intv_rnt ) ir on ir.fkcase_t =c.identifier  and ir.rnk=1 and intvrsnc in ('5608','1225','1226')
+							  
+----------------------------------- Placemenet episode
+left join (select fkclient_t, third_id,removal_dt,pleps_endt, row_number () over (partition by fkclient_t order by pleps_endt desc nulls first) as rnk
+	                        from stg_plc_epst
+		--  where fkclient_t ='Feu5kJ13qj'
+		  
+		  ) pe on pe.fkclient_t = ct.identifier and pe.rnk=1
+		
+------------------------------------------------------- Placement episode legal authority table							
+left join (select fkplc_epst,fkplc_eps0, plc_athc ,effctv_dt, row_number () over (partition by fkplc_epst order by effctv_dt desc nulls first) as rnk
+		   from stg_lg_autht) la on
+		   la.fkplc_eps0 = pe.third_id and 
+		   la.fkplc_epst =pe.fkclient_t and la.rnk=1 and la.plc_athc in ('1404','6135','6539')
+​
+-------------------------------------------------------		Case Hearing table and hearing table   
+left join (select ch.fkcase_t,ht.identifier,ht.hearing_dt, row_number () over (partition by ch.fkcase_t order by ht.hearing_dt desc) as rnk
+           from stg_case_hrt ch
+           inner join stg_hearng_t ht on ht.identifier = ch.fkhearng_t 
+			where ht.hearing_dt is not null)
+			cht on cht.fkcase_t = c.identifier and cht.rnk=1
+			
+--------------------------------------------------------	court result		
+left join (select fkcase_hrt,FNDGORDC,fkcase_hr0,lst_upd_ts, row_number () over (partition by  fkcase_hrt order by lst_upd_ts desc nulls first) as rnk
+                                     from stg_ct_reslt
+										  ) cr 
+ 										on cr.fkcase_hrt = c.identifier 
+										and cht.identifier=cr.fkcase_hr0 
+										and cr.rnk=1 and FNDGORDC in ('5857','1362',null)
+										
+-----------------------------------------------------------										
+left join (select fkplc_epst,scp_rltc,end_dt, row_number () over (partition by  fkplc_epst order by end_dt desc nulls first) as rnk
+	                        from stg_o_hm_plt )oh on oh.fkplc_epst = pe.fkclient_t and oh.rnk=1 and oh.scp_rltc in ('1637','1638','6991')
+​
+where c.identifier = 'D6PpPAi7CR'
+/*
+('9RZ3k6z197',
+'9R3heT4196',
+'D5CwIQz12F',
+'D6PpPAi7CR',
+'DhWzwpi5Fa',
+'EPvC2aJ4DP',
+'EYpLS0sC8B',
+'FwmY8n6GZE',
+'H8xeDAOC0W',
+'ImYIOrR2Ln',
+'JKG4x1f1sm',
+'JXTo5toMCO',
+'Khhrbg18SU',
+'LhvRCqL8cI',
+'L38ZX6c2vl',
+'MJfGMSQ9eD',
+'OyVJO0f37S',
+'ReUjoE4C9u',
+'R3A99Mn194',
+'R6pGL9p3Q9') */
