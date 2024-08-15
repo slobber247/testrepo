@@ -1,14 +1,13 @@
-----------------------------------------------------------------------------
+--------------------------------------------------------------
 -- Active Case by Intervention Reason
 --
---1226	Incoming ICPC Request 
---5608	Non-CWD Foster Care       
---6129	Non-CWD Mental Health                   
---6130	Non-CWD Kin-GAP 
-----------------------------------------------------------------------------
-
+-- 1226	Incoming ICPC Request 
+-- 5608	Non-CWD Foster Care       
+-- 6129	Non-CWD Mental Health                   
+-- 6130	Non-CWD Kin-GAP 
+--------------------------------------------------------------
 WITH TAB_1 AS 
-(
+(  --Get total active cases BY county
 SELECT 	sc.SHORT_DSC county,
 		count(*) active_cases	
   FROM CWSWIN.CASE_T c
@@ -16,10 +15,10 @@ SELECT 	sc.SHORT_DSC county,
   WHERE c.END_DT IS NULL
 GROUP BY c.GVR_ENTC, 
 		sc.SHORT_DSC
- ORDER BY c.GVR_ENTC 
+ORDER BY c.GVR_ENTC 
 ),
 TAB_2 AS 
-( 
+( --Get total by Intervention Reason 
 SELECT sc.SHORT_DSC county
 		,sum(CASE WHEN ir.INTVRSNC = '1226' THEN 1 ELSE 0  END ) AS ir1  
 		,sum(CASE WHEN ir.INTVRSNC = '5608' THEN 1 ELSE 0  END ) AS ir2  
@@ -28,7 +27,6 @@ SELECT sc.SHORT_DSC county
   FROM CWSWIN.CASE_T c
   JOIN CWSWIN.INTV_RNT ir ON ir.FKCASE_T = c.IDENTIFIER 
   JOIN CWSWIN.SYS_CD_C sc ON sc.SYS_ID = c.GVR_ENTC
-  JOIN CWSWIN.SYS_CD_C sc2 ON sc2.SYS_ID = ir.INTVRSNC 
  WHERE c.END_DT IS NULL
 GROUP BY c.GVR_ENTC, 
 		sc.SHORT_DSC
