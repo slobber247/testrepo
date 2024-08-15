@@ -1,0 +1,166 @@
+"COUNTY","INTERVENTION_REASON","ACTIVE_CASES"
+Alameda                                 , ,1590
+Alameda                                 ,Incoming ICPC Request                   ,41
+Alameda                                 ,Non-CWD Foster Care                     ,110
+Alpine                                  , ,2
+Amador                                  , ,70
+Amador                                  ,Non-CWD Foster Care                     ,3
+Butte                                   , ,493
+Butte                                   ,Incoming ICPC Request                   ,20
+Calaveras                               , ,91
+Calaveras                               ,Incoming ICPC Request                   ,6
+Calaveras                               ,Non-CWD Foster Care                     ,1
+Colusa                                  , ,43
+Colusa                                  ,Non-CWD Foster Care                     ,2
+Contra Costa                            , ,865
+Contra Costa                            ,Incoming ICPC Request                   ,47
+Contra Costa                            ,Non-CWD Foster Care                     ,22
+Del Norte                               , ,104
+Del Norte                               ,Incoming ICPC Request                   ,2
+Del Norte                               ,Non-CWD Foster Care                     ,4
+El Dorado                               , ,254
+El Dorado                               ,Incoming ICPC Request                   ,6
+El Dorado                               ,Non-CWD Foster Care                     ,13
+Fresno                                  , ,2332
+Fresno                                  ,Incoming ICPC Request                   ,37
+Fresno                                  ,Non-CWD Foster Care                     ,62
+Glenn                                   , ,88
+Glenn                                   ,Incoming ICPC Request                   ,1
+Glenn                                   ,Non-CWD Foster Care                     ,3
+Humboldt                                , ,420
+Humboldt                                ,Incoming ICPC Request                   ,14
+Humboldt                                ,Non-CWD Foster Care                     ,2
+Imperial                                , ,324
+Imperial                                ,Incoming ICPC Request                   ,2
+Imperial                                ,Non-CWD Foster Care                     ,10
+Inyo                                    , ,22
+Inyo                                    ,Non-CWD Foster Care                     ,1
+Kern                                    , ,2621
+Kern                                    ,Incoming ICPC Request                   ,125
+Kern                                    ,Non-CWD Foster Care                     ,117
+Kings                                   , ,396
+Kings                                   ,Incoming ICPC Request                   ,6
+Kings                                   ,Non-CWD Foster Care                     ,13
+Lake                                    , ,159
+Lake                                    ,Incoming ICPC Request                   ,9
+Lake                                    ,Non-CWD Foster Care                     ,3
+Lassen                                  , ,84
+Lassen                                  ,Incoming ICPC Request                   ,4
+Lassen                                  ,Non-CWD Foster Care                     ,2
+Los Angeles                             , ,31698
+Los Angeles                             ,Incoming ICPC Request                   ,163
+Los Angeles                             ,Non-CWD Foster Care                     ,1627
+Los Angeles                             ,Non-CWD Kin-GAP                         ,8181
+Los Angeles                             ,Non-CWD Mental Health                   ,4
+Madera                                  , ,356
+Madera                                  ,Incoming ICPC Request                   ,6
+Madera                                  ,Non-CWD Foster Care                     ,9
+Marin                                   , ,137
+Marin                                   ,Non-CWD Foster Care                     ,15
+Mariposa                                , ,57
+Mariposa                                ,Incoming ICPC Request                   ,1
+Mariposa                                ,Non-CWD Foster Care                     ,4
+Mendocino                               , ,291
+Mendocino                               ,Incoming ICPC Request                   ,12
+Mendocino                               ,Non-CWD Foster Care                     ,3
+Merced                                  , ,774
+Merced                                  ,Incoming ICPC Request                   ,7
+Merced                                  ,Non-CWD Foster Care                     ,7
+Modoc                                   , ,41
+Modoc                                   ,Non-CWD Foster Care                     ,1
+Mono                                    , ,14
+Monterey                                , ,317
+Monterey                                ,Incoming ICPC Request                   ,3
+Monterey                                ,Non-CWD Foster Care                     ,6
+Napa                                    , ,110
+Napa                                    ,Incoming ICPC Request                   ,2
+Napa                                    ,Non-CWD Foster Care                     ,12
+Nevada                                  , ,53
+Nevada                                  ,Incoming ICPC Request                   ,7
+Nevada                                  ,Non-CWD Foster Care                     ,4
+Orange                                  , ,3445
+Orange                                  ,Incoming ICPC Request                   ,22
+Orange                                  ,Non-CWD Foster Care                     ,31
+Placer                                  , ,291
+Placer                                  ,Incoming ICPC Request                   ,7
+Placer                                  ,Non-CWD Foster Care                     ,7
+Plumas                                  , ,59
+Plumas                                  ,Non-CWD Foster Care                     ,3
+Riverside                               , ,6042
+Riverside                               ,Incoming ICPC Request                   ,97
+Riverside                               ,Non-CWD Foster Care                     ,54
+Sacramento                              , ,2243
+Sacramento                              ,Incoming ICPC Request                   ,51
+Sacramento                              ,Non-CWD Foster Care                     ,78
+San Benito                              , ,35
+San Benito                              ,Non-CWD Foster Care                     ,2
+San Bernardino                          , ,6794
+San Bernardino                          ,Incoming ICPC Request                   ,452
+San Bernardino                          ,Non-CWD Foster Care                     ,122
+San Diego                               , ,2278
+San Diego                               ,Incoming ICPC Request                   ,85
+San Diego                               ,Non-CWD Foster Care                     ,40
+San Francisco                           , ,897
+San Francisco                           ,Incoming ICPC Request                   ,8
+San Francisco                           ,Non-CWD Foster Care                     ,35
+San Joaquin                             , ,1507
+San Joaquin                             ,Incoming ICPC Request                   ,50
+San Joaquin                             ,Non-CWD Foster Care                     ,28
+San Luis Obispo                         , ,372
+San Luis Obispo                         ,Incoming ICPC Request                   ,11
+San Luis Obispo                         ,Non-CWD Foster Care                     ,10
+San Mateo                               , ,162
+San Mateo                               ,Incoming ICPC Request                   ,9
+San Mateo                               ,Non-CWD Foster Care                     ,2
+Santa Barbara                           , ,562
+Santa Barbara                           ,Incoming ICPC Request                   ,11
+Santa Barbara                           ,Non-CWD Foster Care                     ,5
+Santa Clara                             , ,1058
+Santa Clara                             ,Incoming ICPC Request                   ,17
+Santa Clara                             ,Non-CWD Foster Care                     ,17
+Santa Cruz                              , ,173
+Santa Cruz                              ,Incoming ICPC Request                   ,2
+Santa Cruz                              ,Non-CWD Foster Care                     ,11
+Shasta                                  , ,536
+Shasta                                  ,Incoming ICPC Request                   ,14
+Shasta                                  ,Non-CWD Foster Care                     ,21
+Sierra                                  , ,21
+Sierra                                  ,Non-CWD Foster Care                     ,1
+Siskiyou                                , ,112
+Siskiyou                                ,Incoming ICPC Request                   ,4
+Siskiyou                                ,Non-CWD Foster Care                     ,3
+Solano                                  , ,471
+Solano                                  ,Incoming ICPC Request                   ,64
+Solano                                  ,Non-CWD Foster Care                     ,13
+Sonoma                                  , ,733
+Sonoma                                  ,Incoming ICPC Request                   ,17
+Sonoma                                  ,Non-CWD Foster Care                     ,8
+Stanislaus                              , ,695
+Stanislaus                              ,Incoming ICPC Request                   ,14
+Stanislaus                              ,Non-CWD Foster Care                     ,7
+State of California                     , ,421
+State of California                     ,Incoming ICPC Request                   ,10
+State of California                     ,Non-CWD Foster Care                     ,1
+Sutter                                  , ,168
+Sutter                                  ,Incoming ICPC Request                   ,2
+Sutter                                  ,Non-CWD Foster Care                     ,3
+Tehama                                  , ,159
+Tehama                                  ,Incoming ICPC Request                   ,1
+Tehama                                  ,Non-CWD Foster Care                     ,2
+Trinity                                 , ,30
+Trinity                                 ,Non-CWD Foster Care                     ,4
+Tulare                                  , ,1346
+Tulare                                  ,Incoming ICPC Request                   ,6
+Tulare                                  ,Non-CWD Foster Care                     ,3
+Tuolumne                                , ,110
+Tuolumne                                ,Incoming ICPC Request                   ,4
+Tuolumne                                ,Non-CWD Foster Care                     ,2
+Ventura                                 , ,676
+Ventura                                 ,Incoming ICPC Request                   ,7
+Ventura                                 ,Non-CWD Foster Care                     ,5
+Yolo                                    , ,372
+Yolo                                    ,Incoming ICPC Request                   ,3
+Yolo                                    ,Non-CWD Foster Care                     ,2
+Yuba                                    , ,269
+Yuba                                    ,Incoming ICPC Request                   ,5
+Yuba                                    ,Non-CWD Foster Care                     ,10
