@@ -1,0 +1,107 @@
+"GVR_ENTC","COUNTY","INTVRSNC","INTERVENTION_REASON","CASES"
+1068,Alameda                                 ,1226,Incoming ICPC Request                   ,41
+1068,Alameda                                 ,5608,Non-CWD Foster Care                     ,110
+1070,Amador                                  ,5608,Non-CWD Foster Care                     ,3
+1071,Butte                                   ,1226,Incoming ICPC Request                   ,20
+1072,Calaveras                               ,1226,Incoming ICPC Request                   ,6
+1072,Calaveras                               ,5608,Non-CWD Foster Care                     ,1
+1073,Colusa                                  ,5608,Non-CWD Foster Care                     ,2
+1074,Contra Costa                            ,1226,Incoming ICPC Request                   ,47
+1074,Contra Costa                            ,5608,Non-CWD Foster Care                     ,22
+1075,Del Norte                               ,1226,Incoming ICPC Request                   ,2
+1075,Del Norte                               ,5608,Non-CWD Foster Care                     ,4
+1076,El Dorado                               ,1226,Incoming ICPC Request                   ,6
+1076,El Dorado                               ,5608,Non-CWD Foster Care                     ,13
+1077,Fresno                                  ,1226,Incoming ICPC Request                   ,37
+1077,Fresno                                  ,5608,Non-CWD Foster Care                     ,62
+1078,Glenn                                   ,1226,Incoming ICPC Request                   ,1
+1078,Glenn                                   ,5608,Non-CWD Foster Care                     ,3
+1079,Humboldt                                ,1226,Incoming ICPC Request                   ,14
+1079,Humboldt                                ,5608,Non-CWD Foster Care                     ,2
+1080,Imperial                                ,1226,Incoming ICPC Request                   ,2
+1080,Imperial                                ,5608,Non-CWD Foster Care                     ,10
+1081,Inyo                                    ,5608,Non-CWD Foster Care                     ,1
+1082,Kern                                    ,1226,Incoming ICPC Request                   ,125
+1082,Kern                                    ,5608,Non-CWD Foster Care                     ,117
+1083,Kings                                   ,1226,Incoming ICPC Request                   ,6
+1083,Kings                                   ,5608,Non-CWD Foster Care                     ,13
+1084,Lake                                    ,1226,Incoming ICPC Request                   ,9
+1084,Lake                                    ,5608,Non-CWD Foster Care                     ,3
+1085,Lassen                                  ,1226,Incoming ICPC Request                   ,4
+1085,Lassen                                  ,5608,Non-CWD Foster Care                     ,2
+1086,Los Angeles                             ,1226,Incoming ICPC Request                   ,163
+1086,Los Angeles                             ,5608,Non-CWD Foster Care                     ,1627
+1086,Los Angeles                             ,6129,Non-CWD Mental Health                   ,4
+1086,Los Angeles                             ,6130,Non-CWD Kin-GAP                         ,8181
+1087,Madera                                  ,1226,Incoming ICPC Request                   ,6
+1087,Madera                                  ,5608,Non-CWD Foster Care                     ,9
+1088,Marin                                   ,5608,Non-CWD Foster Care                     ,15
+1089,Mariposa                                ,1226,Incoming ICPC Request                   ,1
+1089,Mariposa                                ,5608,Non-CWD Foster Care                     ,4
+1090,Mendocino                               ,1226,Incoming ICPC Request                   ,12
+1090,Mendocino                               ,5608,Non-CWD Foster Care                     ,3
+1091,Merced                                  ,1226,Incoming ICPC Request                   ,7
+1091,Merced                                  ,5608,Non-CWD Foster Care                     ,7
+1092,Modoc                                   ,5608,Non-CWD Foster Care                     ,1
+1094,Monterey                                ,1226,Incoming ICPC Request                   ,3
+1094,Monterey                                ,5608,Non-CWD Foster Care                     ,6
+1095,Napa                                    ,1226,Incoming ICPC Request                   ,2
+1095,Napa                                    ,5608,Non-CWD Foster Care                     ,12
+1096,Nevada                                  ,1226,Incoming ICPC Request                   ,7
+1096,Nevada                                  ,5608,Non-CWD Foster Care                     ,4
+1097,Orange                                  ,1226,Incoming ICPC Request                   ,22
+1097,Orange                                  ,5608,Non-CWD Foster Care                     ,31
+1098,Placer                                  ,1226,Incoming ICPC Request                   ,7
+1098,Placer                                  ,5608,Non-CWD Foster Care                     ,7
+1099,Plumas                                  ,5608,Non-CWD Foster Care                     ,3
+1100,Riverside                               ,1226,Incoming ICPC Request                   ,97
+1100,Riverside                               ,5608,Non-CWD Foster Care                     ,54
+1101,Sacramento                              ,1226,Incoming ICPC Request                   ,51
+1101,Sacramento                              ,5608,Non-CWD Foster Care                     ,78
+1102,San Benito                              ,5608,Non-CWD Foster Care                     ,2
+1103,San Bernardino                          ,1226,Incoming ICPC Request                   ,452
+1103,San Bernardino                          ,5608,Non-CWD Foster Care                     ,122
+1104,San Diego                               ,1226,Incoming ICPC Request                   ,85
+1104,San Diego                               ,5608,Non-CWD Foster Care                     ,40
+1105,San Francisco                           ,1226,Incoming ICPC Request                   ,8
+1105,San Francisco                           ,5608,Non-CWD Foster Care                     ,35
+1106,San Joaquin                             ,1226,Incoming ICPC Request                   ,50
+1106,San Joaquin                             ,5608,Non-CWD Foster Care                     ,28
+1107,San Luis Obispo                         ,1226,Incoming ICPC Request                   ,11
+1107,San Luis Obispo                         ,5608,Non-CWD Foster Care                     ,10
+1108,San Mateo                               ,1226,Incoming ICPC Request                   ,9
+1108,San Mateo                               ,5608,Non-CWD Foster Care                     ,2
+1109,Santa Barbara                           ,1226,Incoming ICPC Request                   ,11
+1109,Santa Barbara                           ,5608,Non-CWD Foster Care                     ,5
+1110,Santa Clara                             ,1226,Incoming ICPC Request                   ,17
+1110,Santa Clara                             ,5608,Non-CWD Foster Care                     ,17
+1111,Santa Cruz                              ,1226,Incoming ICPC Request                   ,2
+1111,Santa Cruz                              ,5608,Non-CWD Foster Care                     ,11
+1112,Shasta                                  ,1226,Incoming ICPC Request                   ,14
+1112,Shasta                                  ,5608,Non-CWD Foster Care                     ,21
+1113,Sierra                                  ,5608,Non-CWD Foster Care                     ,1
+1114,Siskiyou                                ,1226,Incoming ICPC Request                   ,4
+1114,Siskiyou                                ,5608,Non-CWD Foster Care                     ,3
+1115,Solano                                  ,1226,Incoming ICPC Request                   ,64
+1115,Solano                                  ,5608,Non-CWD Foster Care                     ,13
+1116,Sonoma                                  ,1226,Incoming ICPC Request                   ,17
+1116,Sonoma                                  ,5608,Non-CWD Foster Care                     ,8
+1117,Stanislaus                              ,1226,Incoming ICPC Request                   ,14
+1117,Stanislaus                              ,5608,Non-CWD Foster Care                     ,7
+1118,Sutter                                  ,1226,Incoming ICPC Request                   ,2
+1118,Sutter                                  ,5608,Non-CWD Foster Care                     ,3
+1119,Tehama                                  ,1226,Incoming ICPC Request                   ,1
+1119,Tehama                                  ,5608,Non-CWD Foster Care                     ,2
+1120,Trinity                                 ,5608,Non-CWD Foster Care                     ,4
+1121,Tulare                                  ,1226,Incoming ICPC Request                   ,6
+1121,Tulare                                  ,5608,Non-CWD Foster Care                     ,3
+1122,Tuolumne                                ,1226,Incoming ICPC Request                   ,4
+1122,Tuolumne                                ,5608,Non-CWD Foster Care                     ,2
+1123,Ventura                                 ,1226,Incoming ICPC Request                   ,7
+1123,Ventura                                 ,5608,Non-CWD Foster Care                     ,5
+1124,Yolo                                    ,1226,Incoming ICPC Request                   ,3
+1124,Yolo                                    ,5608,Non-CWD Foster Care                     ,2
+1125,Yuba                                    ,1226,Incoming ICPC Request                   ,5
+1125,Yuba                                    ,5608,Non-CWD Foster Care                     ,10
+1126,State of California                     ,1226,Incoming ICPC Request                   ,10
+1126,State of California                     ,5608,Non-CWD Foster Care                     ,1
